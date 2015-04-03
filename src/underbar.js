@@ -77,7 +77,7 @@
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
     var arr = [];
-    _.each(collection, function(element) {
+    _.each(collection, function (element) {
       if (test(element)) arr.push(element);
     });
     return arr;
@@ -96,6 +96,13 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var arr = [];
+    _.each(array, function (element) {
+      if (_.indexOf(arr, element) === -1||arr.length === 0) {
+        arr.push(element);
+      }
+    });
+    return arr;
   };
 
 
