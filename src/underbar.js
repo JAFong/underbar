@@ -312,11 +312,9 @@
     return function() {
       for (var i = 0; i < arguments.length; i++) {
         if (arguments[i] !== memoArgs[i]) {
-          result = func.apply(this, arguments);
-          alreadyCalled = true;
-          for (var i = 0; i < arguments.length; i++) {
-            memoArgs.push(arguments[i]);
-          }
+          alreadyCalled = false;
+          memoArgs = [];
+          i = arguments.length;
         }
       }
       if (!alreadyCalled) {
